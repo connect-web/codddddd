@@ -79,7 +79,7 @@
     isResizable := false
      
     ; Main Settings
-    EMCol := 0xc9008d  ; Target color
+    EMCol := 0x43FF00  ; Target color
     ColVn := 50  ; Tolerance for color matching
     ZeroX := A_ScreenWidth / 2  ; Universal resolution
     ZeroY := A_ScreenHeight / 2.18  ; Universal resolution
@@ -262,7 +262,7 @@
     Gui, Add, Text, % "x7 y+10 w" (Width-14) "r1", Main Options
      
     ; Checkboxes with Green Tick
-    Gui, Add, CheckBox, % "x7 y+5 w" (Width-275) "r1 vEnableCheckbox gUpdateStatus", ENABLE MULTIPLAYER AIM (INSERT)
+    Gui, Add, CheckBox, % "x7 y+5 w" (Width-275) "r1 vEnableCheckbox gUpdateStatus", ENABLE MULTIPLAYER AIM (F6)
     Gui, Add, Text, x+5 w10 h10 vEnableCheckmark Hidden, X
     Gui, Add, CheckBox, % "x7 y+5 w" (Width-275) "r1 vEnablePredictionCheckbox gUpdateStatus", ENABLE PREDICTION (HOME)
     Gui, Add, Text, x+5 w10 h10 vPredictionCheckmark Hidden, X
@@ -1591,7 +1591,7 @@
     	Work to come with stronger aim and fixing aiming at other objects than Enemys
      
         **Hotkeys & COLOR TIPS:**
-        * **Insert**: Toggle Multi-Player Aim (C9008D)
+        * **F6**: Toggle Multi-Player Aim (43FF00)
         * **Delete**: Toggle Zombies Aim (DF00FF)
         * **Home**: Toggle Prediction
         * **PgUp**: Enable Zombie Aim V2 Less Sticky (DF00FF)
@@ -1884,7 +1884,7 @@
     }
      
     Paused := False
-    Insert:: ; Enable Multi-Player Aim Checkbox
+    F6:: ; Enable Multi-Player Aim Checkbox
         ; Toggle the Enable checkbox state
         GuiControlGet, EnableState,, EnableCheckbox
         newEnableState := !EnableState  ; Toggle the state
@@ -2583,6 +2583,7 @@
     }
     Return
      
+    /*
     F5::
     toggle5 := !toggle5
     if (toggle5) {
@@ -2594,6 +2595,7 @@
     }
     Return
      
+    /*
     F6::
     toggle6 := !toggle6
     if (toggle6) {
@@ -2604,6 +2606,7 @@
         SoundBeep, 500, 200
     }
     Return
+    */
      
     Press4:
     Send, 4
@@ -3103,7 +3106,7 @@
     GuiClose2:
         ExitApp
     	
-    	F1::
+    	F5::
         if (GuiVisible) {
             Gui, Hide
             GuiVisible := false
